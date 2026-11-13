@@ -14,19 +14,37 @@
 <body>
 <main>
 <h1>Lantern Road privacy policy</h1>
-<p class="muted">Last updated: 7 November 2026</p>
+<p class="muted">Last updated 12 November 2026</p>
 
 <h2>What the app reads</h2>
 <p>With your permission, Lantern Road reads your <strong>step count</strong> from Health Connect on your Android phone. It reads no other health or fitness data, and it never writes data to Health Connect.</p>
+<p>If you turn on goal and creature alerts, the app also reads your step count in the background (about every 15 minutes) so it can notify you when you reach the day's goal or when a creature appears. You can turn this off in the game's Settings or by revoking background access in Health Connect.</p>
+<p>If you start a <strong>lantern walk</strong>, the app asks for the Android “physical activity” permission and reads your phone’s built-in step counter while the walk runs, to show your steps live. Only the step total is used, it stays on your phone, and the counter is closed when the walk ends.</p>
 
 <h2>How it is used</h2>
 <p>Your steps are converted into in-game progress (your "step pool"). That is the only use. Step data is not used for advertising, profiling, credit, insurance or any purpose other than running the game.</p>
 
 <h2>Where it is stored</h2>
-<p>Everything stays on your phone. The game stores your progress and per-day step totals in the app's local storage. Lantern Road has no account system and does not send your step data, or any other personal data, to a server or to third parties.</p>
+<p>Your progress and per-day step totals are stored in the app's local storage on your phone. Lantern Road has no account system. Unless you join the camp circle (below), it sends nothing to a server or to third parties, apart from the optional weather lookup (below).</p>
 
+<h2>The camp circle (optional)</h2>
+<p>At camp you can choose to join the <strong>camp circle</strong>, which shows other players who walked the same leg that night within 1,000 steps of you. It is off until you join, and you can turn it off at any time in Settings.</p>
+<p>While you are in the circle, the app sends the following to Google Firebase, which runs the circle:</p>
+<ul>
+<li>a random anonymous ID created by Firebase (not linked to your name, email or Google account)</li>
+<li>a wanderer name the game picked at random from a fixed list</li>
+<li>the date of that night, the leg you walked, and your in-game steps for it</li>
+<li>your lantern's look, and the signals you send</li>
+</ul>
+<p>Signals are set phrases chosen from a list in the game. You cannot type free text. Other players in your circle that night see your wanderer name, your signals and your fire. They do not see your ID, your location or your other step history. The circle only ever shows the current night. The app deletes your circle data from earlier nights the next time you join, and deletes all of it when you turn the circle off in Settings. You can also email us to have it deleted. Firebase processes it under <a href="https://firebase.google.com/support/privacy">Google's Firebase privacy terms</a>.</p>
+
+<h2>Local weather (optional)</h2>
+<p>If you turn on <strong>Weather where you are</strong>, the game asks Android for your <em>approximate</em> location (not GPS). It rounds that to about 10 km and sends only those rounded coordinates to <a href="https://open-meteo.com/">Open-Meteo</a>, a free weather service, to get the current weather. Your location is not stored, and nothing identifies you in the request. Only the weather result (for example, "light rain") is kept on your phone, for a few hours. You can turn this off at any time in Settings.</p>
+
+<h2>Purchases</h2>
+<p>Lantern Road sells optional ember packs through Google Play. Google handles the payment and your payment details; the app never sees them. Google Play gives the app a purchase token and the pack you bought. The app keeps that token on your phone so each purchase is credited exactly once, and sends nothing to any server of its own.</p>
 <h2>Removing your data</h2>
-<p>You can revoke step access at any time in Health Connect settings. Use <em>Settings → Erase all progress</em> in the game, or uninstall the app, to delete everything it has stored.</p>
+<p>You can revoke step access at any time in Health Connect settings. Use <em>Settings → Erase all progress</em> in the game, or uninstall the app, to delete everything it has stored. Turning off the camp circle deletes the circle data you sent.</p>
 
 <h2>Children</h2>
 <p>Lantern Road is not directed at children under 13.</p>
