@@ -3,19 +3,75 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lantern Road</title>
+<title>Lantern Road · Walking game for Android and iPhone</title>
+<meta name="description" content="Lantern Road is a cozy walking game where your real steps light the lantern. Support, privacy and community.">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAEOElEQVR42u3dv2oVQRTH8c0wTRBD/lSBgLWFTRrxHQTrVD5Iah/EKrXgO4hNGovUVikNitgEsRAsTJAb7+7OmTOfb53c7Jx853dmZu+9u3N4dDIB/0tRAhAIBAKBQCCAQCAQCAQCAQQCgUAgEAggEAgEAoFAAIFAIBAIBAKBAAKBQCAQCARsRFWC3xzvP6wU1ze3ijaoQA91ZfMXGdCqypuF/sQgMlXSLP2nc5tUecMkAgVV595rS6ZRTa/O6+ePGl7V24/fc2tUpY40GlegHtVJplGlDo3GEiiTOgk0KuwxwCESKL06nUZRYY8hJxdoQHs6GnhVQe0sp0Cb2/Pvs+a7Z8FrMsu1He/XsA4V2aOdZROIPR2VpSrTvezt/j21vv74GaE40XpZZc9dVzb/sfWtiuZQHdOeDaV50OusJlMoh+pQ9szlzb9ffAWT4jhUB7FnUXWamBTEoZLenr3dsqY9a1obYcNR7Lns7X20mUNDCiR+Jl+uwJ7BQ6iwh0PWQBiphc07V1pt0QNefJMQKuxp7tCMo1jfIdMX/Qg04/xIZk+/IVRkT75etqZDpbv40bkcJLInzwB3Do9OgsfP+dnpsPP7zcXlf//uOm/20A4QXiA3Lqa8NzckEGILJH5yh5AEsikLLND2M8CpT/AQKuafENLCkFGgLcNT/MxVikW7WIYt0sunXzq98vdXBxIIQ6+EinrZi0UUyPmhRbT4URZrIPQokP41zjKoCGpdTAsDgUAgDNjFavrqPH72ouGIvn36IIFgI7aiQPbw1kAAgUAgEAgEchNjchQkgUAgTJ5YGJEnr7b69c/vJBBAIAwuUISn2nZBqEJJIBAIBAKBQKA5iPNIc0ggEMhOPgxLNAcJNDkEIhAIBAJZBhHITj7tAmihf4oWhnQC6WIdlUUCIaRAlkFT9iPE0Amki/VSEG+qH/1d8XETaMvYFEJzlWLR5YRFNPIKJITiF6EEX/xzKPh2WAsTP7EFciBkDQT9q6lAQkgCQfxMLU+ir29uW339b/qv+m6b+hIInQhkJUQg6F9NBRJC+YosgdCVQEIoWXnLCIOEFoagM7OMM1T2pEogDuUoZm077Fnub7y/OuCQNRC6zPIy8uDZkyGBONR16YpCsCfDGohDnZarKAp78uzCONRdiYoCsSfbORCHOirLzuHRScx6zfUm/POz04ajeHNxmXtSFRNO9qS9lcGh+EWoXZSv1WfKqJPkZuqAUdTLkEtHBR1Ho45GWlTWPBnrW1qzroo6nRtFuQ1n0O+J/lP0ftMowTQo1g3smVLeypia3gChzqCPOoi8xE65hay5z1EimJT76KEOciK3vkmDHHvWAc92l5NpwFsublJupZT3C3heGA8mH20GgUAgEAggEAgEAoFAAIFAIBAIBAIIBAKBQCAQQCAQCAQCgUAggEAgEAgEAgEEwvL8AvQBkNqpKqUOAAAAAElFTkSuQmCC">
 <style>
-  body { margin: 0; background: #12131c; color: #ece6d8; font: 16px/1.6 system-ui, sans-serif; }
-  main { max-width: 640px; margin: 0 auto; padding: 48px 20px; }
-  a { color: #f2a541; } .muted { color: #a6a2b5; }
+  :root { --bg:#12131c; --panel:#1c1d2b; --line:#34304a; --ink:#ece6d8; --muted:#a6a2b5; --ember:#f2a541; --teal:#5fc4b8; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:48px 20px 64px; }
+  header { display:flex; gap:20px; align-items:center; margin-bottom:28px; }
+  header img { width:96px; height:96px; border-radius:22px; image-rendering:pixelated; box-shadow:0 0 0 3px var(--line); }
+  h1 { margin:0; font-size:34px; letter-spacing:.5px; color:var(--ember); }
+  .tag { margin:4px 0 0; color:var(--muted); }
+  h2 { font-size:15px; letter-spacing:2px; text-transform:uppercase; color:var(--ember); margin:36px 0 10px; }
+  .card { background:var(--panel); border:2px solid var(--line); border-radius:12px; padding:18px 20px; }
+  .stores { display:flex; flex-wrap:wrap; gap:12px; }
+  .btn { display:inline-block; padding:12px 18px; border-radius:10px; font-weight:600; text-decoration:none; border:2px solid var(--ember); color:var(--bg); background:var(--ember); }
+  .btn.ghost { background:transparent; color:var(--ember); }
+  .btn.discord { background:#5865f2; border-color:#5865f2; color:#fff; }
+  a { color:var(--teal); }
+  dt { font-weight:600; margin-top:14px; }
+  dd { margin:4px 0 0; color:var(--muted); }
+  footer { margin-top:44px; color:var(--muted); font-size:14px; }
 </style>
 </head>
 <body>
 <main>
-<h1>Lantern Road</h1>
-<p>An idle walking roguelite for Android. Your daily steps are both your fuel and your life: walk to fill your pool, choose each night how far to push toward the portal, and decide how to deal with whatever waits on the road.</p>
-<p><a href="privacypolicy.html">Privacy policy</a></p>
-<p class="muted">Contact: <a href="mailto:kyleanthonypastor@gmail.com">kyleanthonypastor@gmail.com</a></p>
+  <header>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAEOElEQVR42u3dv2oVQRTH8c0wTRBD/lSBgLWFTRrxHQTrVD5Iah/EKrXgO4hNGovUVikNitgEsRAsTJAb7+7OmTOfb53c7Jx853dmZu+9u3N4dDIB/0tRAhAIBAKBQCCAQCAQCAQCAQQCgUAgEAggEAgEAoFAAIFAIBAIBAKBAAKBQCAQCARsRFWC3xzvP6wU1ze3ijaoQA91ZfMXGdCqypuF/sQgMlXSLP2nc5tUecMkAgVV595rS6ZRTa/O6+ePGl7V24/fc2tUpY40GlegHtVJplGlDo3GEiiTOgk0KuwxwCESKL06nUZRYY8hJxdoQHs6GnhVQe0sp0Cb2/Pvs+a7Z8FrMsu1He/XsA4V2aOdZROIPR2VpSrTvezt/j21vv74GaE40XpZZc9dVzb/sfWtiuZQHdOeDaV50OusJlMoh+pQ9szlzb9ffAWT4jhUB7FnUXWamBTEoZLenr3dsqY9a1obYcNR7Lns7X20mUNDCiR+Jl+uwJ7BQ6iwh0PWQBiphc07V1pt0QNefJMQKuxp7tCMo1jfIdMX/Qg04/xIZk+/IVRkT75etqZDpbv40bkcJLInzwB3Do9OgsfP+dnpsPP7zcXlf//uOm/20A4QXiA3Lqa8NzckEGILJH5yh5AEsikLLND2M8CpT/AQKuafENLCkFGgLcNT/MxVikW7WIYt0sunXzq98vdXBxIIQ6+EinrZi0UUyPmhRbT4URZrIPQokP41zjKoCGpdTAsDgUAgDNjFavrqPH72ouGIvn36IIFgI7aiQPbw1kAAgUAgEAgEchNjchQkgUAgTJ5YGJEnr7b69c/vJBBAIAwuUISn2nZBqEJJIBAIBAKBQKA5iPNIc0ggEMhOPgxLNAcJNDkEIhAIBAJZBhHITj7tAmihf4oWhnQC6WIdlUUCIaRAlkFT9iPE0Amki/VSEG+qH/1d8XETaMvYFEJzlWLR5YRFNPIKJITiF6EEX/xzKPh2WAsTP7EFciBkDQT9q6lAQkgCQfxMLU+ir29uW339b/qv+m6b+hIInQhkJUQg6F9NBRJC+YosgdCVQEIoWXnLCIOEFoagM7OMM1T2pEogDuUoZm077Fnub7y/OuCQNRC6zPIy8uDZkyGBONR16YpCsCfDGohDnZarKAp78uzCONRdiYoCsSfbORCHOirLzuHRScx6zfUm/POz04ajeHNxmXtSFRNO9qS9lcGh+EWoXZSv1WfKqJPkZuqAUdTLkEtHBR1Ho45GWlTWPBnrW1qzroo6nRtFuQ1n0O+J/lP0ftMowTQo1g3smVLeypia3gChzqCPOoi8xE65hay5z1EimJT76KEOciK3vkmDHHvWAc92l5NpwFsublJupZT3C3heGA8mH20GgUAgEAggEAgEAoFAAIFAIBAIBAIIBAKBQCAQQCAQCAQCgUAggEAgEAgEAgEEwvL8AvQBkNqpKqUOAAAAAElFTkSuQmCC" alt="Lantern Road icon">
+    <div>
+      <h1>Lantern Road</h1>
+      <p class="tag">A cozy walking game for Android and iPhone. Your real steps light the lantern.</p>
+    </div>
+  </header>
+
+  <p>You wake beside a fire. Behind you, the dark is coming. Far ahead, a pillar of light marks the summit. Lantern Road reads your step count from Health Connect (Android) or Apple Health (iPhone), so every walk you take carries your wanderer further down the road. Choose your road each morning, meet what waits on it, make camp at night and build up your Waystation.</p>
+
+  <h2>Get the game</h2>
+  <div class="stores">
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.kylepastor.lanternroad">Google Play</a>
+    <a class="btn ghost" href="https://discord.gg/4kMG986pfH">iPhone: coming soon, beta on Discord</a>
+  </div>
+
+  <h2>Community</h2>
+  <div class="card">
+    <p style="margin:0 0 12px">Share your runs, report bugs, suggest ideas and join the iPhone beta on the Lantern Road Discord.</p>
+    <a class="btn discord" href="https://discord.gg/4kMG986pfH">Join the Discord</a>
+  </div>
+
+  <h2>Support</h2>
+  <div class="card">
+    <p style="margin:0">Questions, bugs or purchase problems: email <a href="mailto:kyleanthonypastor@gmail.com">kyleanthonypastor@gmail.com</a> or post in #bug-reports on the Discord. Please include your phone model and the version shown in Settings.</p>
+    <dl>
+      <dt>My steps aren't showing up (iPhone)</dt>
+      <dd>Open the Health app, go to Sharing, then Apps, then Lantern Road, and turn on Steps. Steps from an Apple Watch or other apps that write to Apple Health count too.</dd>
+      <dt>My steps aren't showing up (Android)</dt>
+      <dd>Open Health Connect settings from the game's Settings, allow Lantern Road to read steps, and make sure your step tracker writes to Health Connect.</dd>
+      <dt>I bought embers but didn't get them</dt>
+      <dd>Reopen the game; purchases are checked again on launch. If they still haven't arrived, email the address above with the time of purchase.</dd>
+      <dt>Can I use miles?</dt>
+      <dd>Yes. Turn on Distances in miles in Settings.</dd>
+      <dt>Does it work on a treadmill?</dt>
+      <dd>A watch or fitness band counts treadmill steps far better than a phone in your hand.</dd>
+    </dl>
+  </div>
+
+  <h2>Privacy</h2>
+  <p>Lantern Road reads only your step count. No ads, no tracking, and the camp circle and local weather are optional. Read the full <a href="privacypolicy.html">privacy policy</a>.</p>
+
+  <footer>© 2026 Kyle Pastor · <a href="privacypolicy.html">Privacy policy</a> · <a href="mailto:kyleanthonypastor@gmail.com">Contact</a></footer>
 </main>
 </body>
 </html>
